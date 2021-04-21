@@ -1,5 +1,5 @@
 
-### Ejercicio 1: Crear un dataframe con información de fecha y tiempo
+### Ejercicio 1: Crear un dataframe con informaciÃ³n de fecha y tiempo
 
 # Vector de fechas con diferentes formatos
 
@@ -25,19 +25,15 @@ date_time_measurement
 
 
 
-
-
-
 ### Ejercicio 2
 
 # Crea "x" con time zone CET y esta fecha "2014-04-12 23:12"
 
 # Cambia ahora el minuto de esa fecha al minuto 7
 
-# Mira a qué tiempo corresponde en Londres 
+# Mira a quÃ© tiempo corresponde en Londres 
 
 # Crea otro tiempo "y" que sea "2015-12-12 09:45" y mira la diferencia entre x e y
-
 
 
 x = ymd_hm(tz = "CET", "2014-04-12 23:12")
@@ -49,4 +45,3 @@ with_tz(x, tz="Europe/London")
 y = ymd_hm(tz = "CET", "2015-12-12 09:45")
 
 y-x
-

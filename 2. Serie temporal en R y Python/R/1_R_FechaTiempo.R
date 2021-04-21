@@ -1,24 +1,22 @@
-### Librerías que necesitamos:
+### LibrerÃ­as que necesitamos:
 library(lubridate) 
 library(tseries)
 library(forecast)
+library(chron)
 
+### Opciones estÃ¡ndar en R base POSIXt: Portable Operating System Interface for Time (codificaciÃ³n estÃ¡ndar)
 
-
-
-### Opciones estándar en R base POSIXt: Portable Operating System Interface for Time (codificación estándar)
-
-x = as.POSIXct("2019-12-25 11:45:34") # Número de segundos
+x = as.POSIXct("2019-12-25 11:45:34") # NÃºmero de segundos
 
 y = as.POSIXlt("2019-12-25 11:45:34")
 
-x; y # Se obtiene lo mismo, pero qué hay detrás de esto? 
+x; y # Se obtiene lo mismo, pero quÃ© hay detrÃ¡s de esto? 
 
 unclass(x)
 
 unclass(y)
 
-# Qué significa este número 1577270734?
+# QuÃ© significa este nÃºmero 1577270734?
 # Es la cantidad de segundos que hay hasta esa fecha, desde el punto de referencia 01-01-1970 00:00:00:
 
 # Time zone
@@ -35,12 +33,9 @@ x; class(x)
 
 unclass(x)
 
-50 * 365 - 5 # Numero de días desde 01-01-1970 (no considera los años bisiestos)
+50 * 365 - 5 # Numero de dÃ­as desde 01-01-1970 (no considera los aÃ±os bisiestos)
 
-### Otra forma: librería chron
-
-install.packages("chron")
-library(chron)
+### Otra forma: librerÃ­a chron
 
 x = chron("12/25/2019", "23:34:09")
 
@@ -49,7 +44,6 @@ x
 class(x)
 
 unclass(x)
-
 
 
 ### Otro forma: strptime convierte desde caracteres de texto (strings to date and time)
@@ -64,7 +58,7 @@ class(a)
 
 
 
-b = strptime(a, format = "%Y-%m-%d %H:%M") #format nos dice cómo se debe interpretar el texto
+b = strptime(a, format = "%Y-%m-%d %H:%M") #format nos dice cÃ³mo se debe interpretar el texto
 
 b; class(b)
 
@@ -113,14 +107,14 @@ mytimepoint
 
 
 
-## También se puede calcular el día de la semana que corresponde a nuestra fecha
+## TambiÃ©n se puede calcular el dÃ­a de la semana que corresponde a nuestra fecha
 
 wday(mytimepoint)
 
 wday(mytimepoint, label=T, abbr=F) # los niveles que considera
 
 
-# Podemos ver en otra zona a qué fecha y hora corresponde
+# Podemos ver en otra zona a quÃ© fecha y hora corresponde
 
 with_tz(mytimepoint, tz = "Europe/London")
 
@@ -135,5 +129,3 @@ time2 = ymd_hm("1995-11-02 15:23", tz = "Europe/Prague")
 myinterval = interval(time1, time2); myinterval
 
 class(myinterval) # interval is an object class from lubridate
-
-

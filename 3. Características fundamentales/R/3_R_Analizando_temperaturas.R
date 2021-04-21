@@ -8,10 +8,10 @@ adf.test(x) # Dickey Fuller Test
 
 
 # Nottem dataset
-# Serie de tiempo que contiene el promedio de temperaturas en el castillo de Nottingham en grados Fahrenheit durante 20 años.
+# Serie de tiempo que contiene el promedio de temperaturas en el castillo de Nottingham en grados Fahrenheit durante 20 aÃ±os.
 plot(nottem)
 
-#Descomposición en efecto de tendencia, estacional y residual.
+#DescomposiciÃ³n en efecto de tendencia, estacional y residual.
 plot(decompose(nottem))
 
 #Dickey Fuller Test
@@ -33,8 +33,7 @@ pacf(nottem, lag.max =20, plot = T)
 acf(x, plot = T)
 
 
-
-### Otra forma de hacer la descomposición
+### Otra forma de hacer la descomposiciÃ³n
 
 autoplot(decompose(nottem, type = "additive"))
 
@@ -45,6 +44,3 @@ plot(stl(nottem, s.window="periodic")) #s.window: seasonal window
 mynottem = decompose(nottem, "additive")
 
 class(mynottem)
-
-
-
