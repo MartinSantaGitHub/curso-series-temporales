@@ -1,3 +1,5 @@
+library(forecast)
+
 ########## German Inflation Rates Project
 
 mydata = scan()
@@ -25,5 +27,3 @@ germaninflarima = auto.arima(germaninfl,
 # Forecast
 forec = forecast(germaninflarima)
 plot(forec)
-
-

@@ -1,7 +1,6 @@
-
 # Importando los datos
 library(readr)
-APTelectric <- read_csv("A CURSO SERIES TEMPORALES (NUEVO)/Clases Nuevas/Redes Neuronales para series/Clase 9/APTelectricity.csv", 
+APTelectric <- read_csv("APTelectricity.csv", 
                         col_types = cols(X1 = col_skip()))
 
 # Objeto ts
@@ -18,17 +17,17 @@ library(ggplot2)
 autoplot(nnetforecast)
 
 
-# Usando una variable ex骻ena
+# Usando una variable ex贸gena
 fit2 = nnetar(myts, xreg = APTelectric$appliances)
 
 
-# Definiendo los pron髎ticos de la variable ex骻ena para 10 horas
-y =rep(2, times = 12*10)
+# Definiendo los pron贸sticos de la variable ex贸gena para 10 horas
+y = rep(2, times = 12*10)
 nnetforecast <- forecast(fit2, xreg = y, PI = F)
 autoplot(nnetforecast)
 
 
-# Definiendo los pron髎ticos de la variable ex骻ena para 30 horas
-y =rep(2, times = 12*30)
+# Definiendo los pron贸sticos de la variable ex贸gena para 30 horas
+y = rep(2, times = 12*30)
 nnetforecast <- forecast(fit2, xreg = y, PI = F)
 autoplot(nnetforecast)

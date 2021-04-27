@@ -1,19 +1,18 @@
 library(forecast)
 
 # Dataset de linces 
-# N˙mero de linces atrapados por aÒo en el perÌodo 1821-1934 en Canad·
+# N√∫mero de linces atrapados por a√±o en el per√≠odo 1821-1934 en Canad√°
 length(lynx)
 
 plot(lynx)
 
-# Parece estacionario pero probablemente haya autocorrelaciÛn 
-# Si se capturan muchos linces un aÒo, se espera que al Òo sgte hayan menos porque hay menos para reproducirse.
-# Vemos un pulso cÌclico que son los puntos m·ximos, no hay estacionalidad pero hay un patrÛn
+# Parece estacionario pero probablemente haya autocorrelaci√≥n 
+# Si se capturan muchos linces un a√±o, se espera que al a√±o siguiente hayan menos porque hay 
+# menos para reproducirse.
+# Vemos un pulso c√≠clico que son los puntos m√°ximos, no hay estacionalidad pero hay un patr√≥n
 
 # Es estacionaria
 adf.test(lynx)
-
-
 
 tsdisplay(lynx) # autoregresion?
 
@@ -29,7 +28,7 @@ myarima=auto.arima(lynx, trace = T,
            approximation = F)
 ### ARIMA Forecast
 
-# Forecast de 10 aÒos
+# Forecast de 10 a√±os
 arimafore <- forecast(myarima, h = 10)
 
 plot(arimafore)
@@ -40,5 +39,33 @@ arimafore$mean
 # Ultimas observaciones y forecast
 plot(arimafore, xlim = c(1930, 1944))
 
+### Tarea 5
 
+summary(myarima)
 
+myarima2 = auto.arima(lynx, trace = T, 
+                      stepwise = F, 
+                      approximation = F,
+                      max.p = 8,
+                      max.order = 8)
+
+summary(myarima2)
+
+# myarima es el modelo obtenido de la clase anterior AR(4)
+# myarima2 es el modelo AR(8)
+
+myarima$loglik
+myarima2$loglik
+
+myarima$aic
+myarima2$aic
+
+# Aumentemos max.p y max.order hasta un valor exagerado de 18.
+
+myarima3 = auto.arima(lynx, trace = T, 
+                      stepwise = F, 
+                      approximation = F,
+                      max.p = 18,
+                      max.order = 18)
+
+summary(myarima3)

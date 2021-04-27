@@ -44,9 +44,8 @@ plot(forecast(etsmodel, h = 12))
 plot(forecast(etsmodel, h = 12, level = 95))
 
 # Holt Winters multiplicativo
-etsmodmult = ets(nottem, model ="MMM"); #error, tendencia, estacionalidad. Defecto ZZZ
+etsmodmult = ets(nottem, model ="MMM"); #error, tendencia, estacionalidad. Por defecto ZZZ
 
-# Comparación
+# ComparaciÃ³n
 plot(nottem, lwd = 3)
 lines(etsmodmult$fitted, col = "red")
-
